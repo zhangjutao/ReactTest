@@ -5,7 +5,7 @@
 import ajax from './ajax';
 
 //注册接口
-exports const reqRegister = (user) => ajax('/register',user, 'POST');
+export const reqRegister = (user) => ajax('/register',user, 'POST');
 
 //登陆接口
 export const reqLogin = ({username, password}) => ajax('/login', {username, password}, 'POST');
