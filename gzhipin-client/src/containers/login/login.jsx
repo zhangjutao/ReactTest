@@ -7,15 +7,20 @@ import {
   WhiteSpace,
   Button
 } from 'antd-mobile';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
+import {login} from '../../redux/actions';
+
 import Logo from '../../components/logo/logo';
-export default class Login extends Component {
+class Login extends Component {
   state = {
     username: '',  //用户名
     password: '',  //密码
   }
 
   login = () => {
-    console.log(this.state);
+    // console.log(this.state);
+    this.props.login(this.state);
   }
 
   //处理输入数据的改变，更新对应的状态
@@ -30,12 +35,19 @@ export default class Login extends Component {
   }
 
   render() {
+    const {msg, redirectTo} = this.props.user
+    // 如果redirectTo有值, 就需要重定向到指定的路由
+    if(redirectTo) {
+      return <Redirect to={redirectTo}/>
+    }
+
     return (
       <div>
         <NavBar>硅&nbsp;谷&nbsp;直&nbsp;聘</NavBar>
         <Logo />
         <WingBlank>
           <List>
+          {msg ? <div className='error-msg'>{msg}</div> : null}
             <WhiteSpace />
             <InputItem placeholder="请输入用户名" onChange={val => { this.handleChange('username', val) }}>用户名:</InputItem>
             <WhiteSpace />
@@ -50,3 +62,8 @@ export default class Login extends Component {
     )
   }
 }
+
+export default connect(
+  state => ({user: state.user}),
+  {login}
+)(Login)
