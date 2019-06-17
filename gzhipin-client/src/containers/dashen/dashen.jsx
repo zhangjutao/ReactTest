@@ -1,17 +1,17 @@
 /* 
-  老板主界面路由容器组件
+  大神主界面路由容器组件
 */
 
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 
-class Laoban extends Component{
+class Dashen extends Component{
     render(){
-        <div>老板</div>
+        <div>大神</div>
     }
 }
 
 export default connect(
   state => ({}),
   {}
-)(Laoban)
+)(Dashen)

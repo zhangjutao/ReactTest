@@ -1,17 +1,17 @@
 /* 
-  老板主界面路由容器组件
+  消息面路由容器组件
 */
 
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 
-class Laoban extends Component{
+class Message extends Component{
     render(){
-        <div>老板</div>
+        <div>Message</div>
     }
 }
 
 export default connect(
   state => ({}),
   {}
-)(Laoban)
+)(Message)
