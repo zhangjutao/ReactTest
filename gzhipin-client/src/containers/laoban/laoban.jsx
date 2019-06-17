@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 class Laoban extends Component{
     render(){
-        <div>老板</div>
+        return (<div>老板</div>)
     }
 }
 

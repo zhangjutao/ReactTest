@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 class Message extends Component{
     render(){
-        <div>Message</div>
+        return (<div>Message</div>)
     }
 }
 

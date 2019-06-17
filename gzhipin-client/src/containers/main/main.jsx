@@ -113,7 +113,7 @@ class Main extends Component{
               <Route path='/laobaninfo' component={LaobanInfo}></Route>
               <Route path='/dasheninfo' component={DashenInfo}></Route>
               {
-                navList.map(nav => <Route path={nav.path} component={nav.component}></Route>)
+                navList.map(nav => <Route key={nav.path} path={nav.path} component={nav.component}></Route>)
               }
               <Route component={NotFound}></Route>
             </Switch>
