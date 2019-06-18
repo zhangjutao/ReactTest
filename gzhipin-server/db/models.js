@@ -32,3 +32,21 @@ exports.UserModel = UserModel
 // module.exports = xxx  一次性暴露
 // exports.xxx = value   分别暴露
 // exports.yyy = value
+
+
+
+//定义chats集合的文档结构
+const chatSchema = mongoose.Schema({
+  from:{type:String, required:true},  //发送消息的用户ID
+  to:{type:String, required:true},    //接收消息的用户ID
+  chat_id:{type:String, required:true}, //from和to组成的字符串
+  content:{type:String, required:true}, //内容
+  read:{type:Boolean, required:true},   //标识是否已读
+  create_time:{type:Number},            //创建时间
+})
+
+//定义能操作chats集合数据的Model
+const ChatModel = mongoose.model('chat',chatSchema);
+
+//向外暴露Model
+exports.ChatModel = ChatModel

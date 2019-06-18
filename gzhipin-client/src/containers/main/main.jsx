@@ -12,6 +12,7 @@ import Message from '../message/message';
 import Personal from '../personal/personal';
 import NotFound from '../../components/not-found/not-found';
 import NavFooter from '../../components/nav-footer/nav-footer'
+import Chat from '../../containers/chat/chat';
 
 import {getRedirectTo} from '../../utils';
 
@@ -115,6 +116,7 @@ class Main extends Component{
               {
                 navList.map(nav => <Route key={nav.path} path={nav.path} component={nav.component}></Route>)
               }
+              <Route path='/chat/:userid' component={Chat}></Route>
               <Route component={NotFound}></Route>
             </Switch>
             {currentNav ? <NavFooter navList={navList}/> : null}

@@ -5,10 +5,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { WingBlank, WhiteSpace, Card } from 'antd-mobile';
+import {withRouter} from 'react-router-dom';
 const Header = Card.Header;
 const Body = Card.Body;
 
-export default class UserList extends Component {
+class UserList extends Component {
   static propTypes = {
     userList: PropTypes.array.isRequired
   }
@@ -21,7 +22,7 @@ export default class UserList extends Component {
           userList.map(user => (
             <div key={user._id}>
               <WhiteSpace />
-              <Card>
+              <Card onClick={() => this.props.history.push(`/chat/${user._id}`)}>
                 <Header
                   thumb={require(`../../assets/images/${user.header}.png`)}
                   extra={user.username}
@@ -40,3 +41,6 @@ export default class UserList extends Component {
     )
   }
 }
+
+
+export default withRouter(UserList)
