@@ -108,7 +108,7 @@ class Main extends Component{
 
         return (
             <div>
-              {currentNav ? <NavBar>{currentNav.title}</NavBar> : null}
+              {currentNav ? <NavBar className='sticky-header'>{currentNav.title}</NavBar> : null}
             <Switch>
               <Route path='/laobaninfo' component={LaobanInfo}></Route>
               <Route path='/dasheninfo' component={DashenInfo}></Route>

@@ -7,7 +7,8 @@ import {
   AUTH_SUCCESS,
   ERROR_MSG,
   RECEIVE_USER,
-  RESET_USER
+  RESET_USER,
+  RECEIVE_USER_LIST
 } from './action-types'
 
 import {getRedirectTo} from '../utils';
@@ -18,6 +19,7 @@ const initUser = {
   msg: '', // 错误提示信息
   redirectTo:'' //需要自动重定向的路由路径
 }
+
 // 产生user状态的reducer
 function user(state=initUser, action) {
   switch (action.type) {
@@ -35,8 +37,21 @@ function user(state=initUser, action) {
   }
 }
 
+const initUserList = [];
+//产生userlist状态的reducer
+function userList(state=initUserList, action){
+  switch(action.type){
+    case RECEIVE_USER_LIST:
+      //data为userlist
+      return action.data;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
-  user
+  user,
+  userList
 })
 // 向外暴露的状态的结构: {user: {}, userList: [], chat: {}}
 
