@@ -4,14 +4,31 @@
 
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {Result, List, WhiteSpace, Button} from 'antd-mobile';
+import {Result, List, WhiteSpace, Button, Modal} from 'antd-mobile';
+import Cookie from 'js-cookie';
+import {resetUser} from '../../redux/actions';
 
 const Item = List.Item;
 const Brief = Item.Brief;
 class Personal extends Component{
 
     logout = () => {
-      alert('登录')
+      //alert('登录')
+      Modal.alert('退出','确认退出登录吗？', [
+        {
+          text: '取消',
+          onPress: () => console.log('cancel')
+        },{
+          text: '确认',
+          onPress: () => {
+            //console.log('ok')
+            //清楚cookie中的uerid
+            Cookie.remove('userid');
+            //重置redux中的user状态
+            this.props.resetUser();
+          }
+        }
+      ])
     }
 
     render(){
@@ -38,5 +55,5 @@ class Personal extends Component{
 
 export default connect(
   state => ({user:state.user}),
-  {}
+  {resetUser}
 )(Personal)

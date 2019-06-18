@@ -24,7 +24,7 @@ const errorMsg = (msg) => ({type: ERROR_MSG, data: msg})
 //接收用户的同步action
 const receiveUser = (user) => ({type:RECEIVE_USER, data: user})
 //接收用户的重置action
-const resetUser = (msg) => ({type:RESET_USER, data:msg})
+export const resetUser = (msg) => ({type:RESET_USER, data:msg})
 
 // 注册异步action
 export const register = (user) => {
