@@ -11,7 +11,7 @@ import Rigister from './containers/register/register'
 import Login from './containers/login/login'
 import Main from './containers/main/main'
 
-import './test/socketio_test';
+//import './test/socketio_test';
 
 import './assets/css/index.less'
 
